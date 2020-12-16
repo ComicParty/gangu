@@ -63,20 +63,15 @@
                 painting = true
                 last = [e.clientX,e.clientY]
             }
-            drawLine(0,0,300,300)    //画线 0，0起点；300，300终点  必需提前声明drawLine()函数
-                        drawLine(300,300,300,400)
+                        
             canvas.onmousemove =(e)=>{
                 // console.log(e)
                 if(painting===true){
-                        console.log(last)
-                        console.log('now')
-                        console.log(e.clientX)
-                        console.log(e.clientY)
-                    drawLine(last[0],last[1],e.clientX,e.clentY);
-                        drawLine(0,0,300,300)    //画线 0，0起点；300，300终点  必需提前声明drawLine()函数
-                        drawLine(300,300,300,400)
+                    drawLine(last[0],last[1],e.clientX,e.clientY)
                         
-                    // last = [e.clientX,e.clientX]
+                    last = [e.clientX,e.clientY]
+                }else{
+                    console.log('什么都不做');
                 }
             }
             canvas.onmouseup=()=>{
