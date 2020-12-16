@@ -24,7 +24,8 @@ var server = http.createServer(function(request, response){
   if(path === '/'){
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    fs.readFile('./index.html')
+    // fs.readFile('./index.html')
+    response.sendFile(fs.readFileSync('index.html','UTF-8'));
     response.end()
   } else {
     response.statusCode = 404
