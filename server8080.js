@@ -24,8 +24,12 @@ var server = http.createServer(function(request, response){
   if(path === '/'){
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    // fs.readFile('./index.html')
-    response.sendFile(fs.readFileSync('index.html','UTF-8'));
+    response.write(`<!DOCTYPE html><html><head><link rel="stylesheet" type="text/css" href="./xcss"></head><h1>我是标题</h1><a href="./index.html" title="画图页面">画图页面</a><body></body></html>`)
+    response.end()
+  } else if(path === '/xcss'){
+    response.statusCode = 200
+    response.setHeader('Content-Type', 'text/css;charset=utf-8')
+    response.write(`h1{color: red;}`)
     response.end()
   } else {
     response.statusCode = 404
